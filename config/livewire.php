@@ -108,7 +108,7 @@ return [
     |---------------------------------------------------------------------------
     |
     | By default, Livewire automatically injects its JavaScript and CSS into the
-    | <head> and <body> of pages containing Livewire components. By disabling
+    | <header> and <body> of pages containing Livewire components. By disabling
     | this behavior, you need to use @livewireStyles and @livewireScripts.
     |
     */
