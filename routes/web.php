@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\Dashboard\DashboardComponent;
 use App\Livewire\Result;
 use Illuminate\Support\Facades\Route;
 
@@ -23,9 +24,10 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', static function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', DashboardComponent::class)->name('dashboard');
+//    Route::get('/dashboard', static function () {
+//        return view('dashboard');
+//    })->name('dashboard');
 
     Route::get('/result', Result::class)->name('result');
 
