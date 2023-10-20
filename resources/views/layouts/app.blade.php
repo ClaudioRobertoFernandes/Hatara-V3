@@ -4,6 +4,7 @@
     @include('layouts.header.index')
 
     <body class="font-sans antialiased">
+    @livewire('notifications')
         <x-banner />
 
         <div class="min-h-screen bg-gray-100">
@@ -25,7 +26,7 @@
         </div>
 
         @stack('modals')
-
+        @filamentScripts
         @livewireScripts
     </body>
 </html>

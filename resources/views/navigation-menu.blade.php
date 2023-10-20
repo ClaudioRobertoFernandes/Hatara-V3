@@ -96,6 +96,16 @@
                         </x-slot>
 
                         <x-slot name="content">
+                            <!-- Change Modules -->
+                            <x-dropdown-link href="#">
+                                {{ __('Módulo anual') }}
+                            </x-dropdown-link>
+                            <x-dropdown-link href="#">
+                                {{ __('Módulo temporada') }}
+                            </x-dropdown-link>
+                            <x-dropdown-link href="#">
+                                {{ __('Módulo Loteamento') }}
+                            </x-dropdown-link>
                             <!-- Account Management -->
                             <div class="block px-4 py-2 text-xs text-gray-400">
                                 {{ __('Manage Account') }}
