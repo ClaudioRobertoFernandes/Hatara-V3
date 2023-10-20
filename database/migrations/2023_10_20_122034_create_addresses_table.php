@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('complement')->nullable();
             $table->string('code_ibge')->nullable();
             $table->string('ddd')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

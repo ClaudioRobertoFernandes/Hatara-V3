@@ -58,5 +58,9 @@ class DatabaseSeeder extends Seeder
 
         $this->call(AddressSeeder::class);
 
+        $this->call(BatchSeeder::class);
+
+        $this->call(IgpmSeeder::class);
+
     }
 }

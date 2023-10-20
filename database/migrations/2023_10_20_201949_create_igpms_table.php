@@ -11,15 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('vehicles', static function (Blueprint $table) {
+        Schema::create('igpms', static function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
-            $table->string('brand');
-            $table->string('model');
-            $table->string('plate');
-            $table->string('color');
-            $table->string('vehicle_img')->nullable();
-            $table->softDeletes();
+            $table->float('value');
+            $table->timestamp('reference');
             $table->timestamps();
         });
     }
@@ -29,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('vehicles');
+        Schema::dropIfExists('igpms');
     }
 };
