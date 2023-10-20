@@ -1,14 +1,14 @@
 <?php
 
-namespace Database\Factories\UserTypes;
+namespace Database\Factories\UserType;
 
-use App\Models\UserTypes\UserTypes;
+use App\Models\UserType\UserType;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends Factory<UserTypes>
+ * @extends Factory<UserType>
  */
-class UserTypesFactory extends Factory
+class UserTypeFactory extends Factory
 {
     /**
      * Define the model's default state.

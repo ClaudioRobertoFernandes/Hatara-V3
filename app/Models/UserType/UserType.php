@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Models\UserTypes;
+namespace App\Models\UserType;
 
 use App\Models\Users\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class UserTypes extends Model
+class UserType extends Model
 {
     use HasFactory;
 
