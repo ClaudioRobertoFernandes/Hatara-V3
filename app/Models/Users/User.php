@@ -2,7 +2,8 @@
 
 namespace App\Models\Users;
 
-use App\Models\UserTypes\UserTypes;
+use App\Models\Address\Address;
+use App\Models\UserType\UserType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -67,7 +68,12 @@ class User extends Authenticatable
 
     public function userType(): HasOne
     {
-        return $this->hasOne(UserTypes::class);
+        return $this->hasOne(UserType::class);
+    }
+
+    public function address(): HasOne
+    {
+        return $this->hasOne(Address::class);
     }
 
 }

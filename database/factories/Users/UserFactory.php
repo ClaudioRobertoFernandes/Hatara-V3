@@ -4,7 +4,7 @@ namespace Database\Factories\Users;
 
 use App\Models\Team;
 use App\Models\Users\User;
-use App\Models\UserTypes\UserTypes;
+use App\Models\UserType\UserType;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use Laravel\Jetstream\Features;
@@ -23,7 +23,7 @@ class UserFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'user_type_id' => $this->faker->numberBetween(2, UserTypes::all()->count()),
+            'user_type_id' => $this->faker->numberBetween(2, UserType::all()->count()),
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
