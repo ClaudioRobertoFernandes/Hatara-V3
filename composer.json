@@ -19,6 +19,7 @@
         "livewire/livewire": "^3.0"
     },
     "require-dev": {
+        "roave/security-advisories": "dev-latest",
         "fakerphp/faker": "^1.9.1",
         "laradumps/laradumps": "^2.2",
         "laravel/pint": "^1.0",
