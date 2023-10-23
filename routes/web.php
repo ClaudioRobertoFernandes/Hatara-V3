@@ -1,5 +1,7 @@
 <?php
 
+use App\Livewire\Clients\ClientsComponent;
+use App\Livewire\Igpm\IgpmComponent;
 use App\Livewire\Dashboard\AllotmentDashboardComponent;
 use App\Livewire\Dashboard\DashboardComponent;
 use App\Livewire\Result;
@@ -32,7 +34,12 @@ Route::group([
         Route::get('/result', Result::class)->name('result');
     });
     Route::prefix('loteamento')->group(function () {
+
         Route::get('/dashboard', AllotmentDashboardComponent::class)->name('dashboard-lot');
+
+        Route::get('/clients', ClientsComponent::class)->name('clients');
+
+        Route::get('/index', IgpmComponent::class)->name('index');
     });
 
     Route::prefix('temporada')->group(function () {

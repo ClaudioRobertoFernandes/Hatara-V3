@@ -17,6 +17,8 @@ class Controller extends BaseController
             ['name' => 'Loteamentos', 'route' => 'dashboard-lot','label'=> 'Dashboard','group'=>'loteamento'],
             ['name' => 'Temporadas', 'route' => 'dashboard-temp','label'=> 'Dashboard','group'=>'temporada'],
             ['name' => 'Resultados', 'route' => 'result','label'=> 'Result','group'=>'anual'],
+            ['name' => 'Clientes', 'route'=>'clients', 'label' =>'Clientes', 'group'=>'loteamento'],
+            ['name' => 'Index', 'route'=>'index', 'label' =>'Igpm', 'group'=>'loteamento'],
         ];
     }
 }
