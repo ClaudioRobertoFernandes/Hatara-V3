@@ -5,20 +5,26 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <x-application-mark class="block h-9 w-auto" />
-                    </a>
+                    @if(request()->routeIs('dashboard'))
+                        <a href="{{ route('dashboard') }}">
+                            <x-application-mark class="block h-9 w-auto"/>
+                        </a>
+                    @endif
+                    @if(request()->routeIs('dashboard-temp'))
+                        <a href="{{ route('dashboard-temp') }}">
+                            <x-application-mark class="block h-9 w-auto"/>
+                        </a>
+                    @endif
+                    @if(request()->routeIs('dashboard-lot'))
+                        <a href="{{ route('dashboard-lot') }}">
+                            <x-application-mark class="block h-9 w-auto"/>
+                        </a>
+                    @endif
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
-                    <x-nav-link href="{{ route('result') }}" :active="request()->routeIs('result')">
-                        {{ __('Result') }}
-                    </x-nav-link>
-                </div>
+                @include('components.navigation-links-desktop.navigation-links-desktop-component')
+
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -97,15 +103,9 @@
 
                         <x-slot name="content">
                             <!-- Change Modules -->
-                            <x-dropdown-link href="#">
-                                {{ __('Módulo anual') }}
-                            </x-dropdown-link>
-                            <x-dropdown-link href="#">
-                                {{ __('Módulo temporada') }}
-                            </x-dropdown-link>
-                            <x-dropdown-link href="#">
-                                {{ __('Módulo Loteamento') }}
-                            </x-dropdown-link>
+
+                            @include('components.show-module-desktop.show-module-desktop-component')
+
                             <!-- Account Management -->
                             <div class="block px-4 py-2 text-xs text-gray-400">
                                 {{ __('Manage Account') }}
@@ -126,9 +126,8 @@
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}" x-data>
                                 @csrf
-
                                 <x-dropdown-link href="{{ route('logout') }}"
-                                    @click.prevent="$root.submit();">
+                                                 @click.prevent="$root.submit();">
                                     {{ __('Log Out') }}
                                 </x-dropdown-link>
                             </form>
@@ -139,10 +138,14 @@
 
             <!-- Hamburger -->
             <div class="-mr-2 flex items-center sm:hidden">
-                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
+                <button @click="open = ! open"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                        <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex"
+                              stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M4 6h16M4 12h16M4 18h16"/>
+                        <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round"
+                              stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                     </svg>
                 </button>
             </div>
@@ -152,12 +155,25 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link href="{{ route('result') }}" :active="request()->routeIs('result')">
-                {{ __('Result') }}
-            </x-responsive-nav-link>
+            @include('components.navigation-links-mobile.navigation-links-mobile-component')
+{{--            @if(request()->routeIs('dashboard'))--}}
+{{--                <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">--}}
+{{--                    {{ __('Dashboard') }}--}}
+{{--                </x-responsive-nav-link>--}}
+{{--                <x-responsive-nav-link href="{{ route('result') }}" :active="request()->routeIs('result')">--}}
+{{--                    {{ __('Result') }}--}}
+{{--                </x-responsive-nav-link>--}}
+{{--            @endif--}}
+{{--            @if(request()->routeIs('dashboard-temp'))--}}
+{{--                    <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard-tem')">--}}
+{{--                        {{ __('dashboard-tem') }}--}}
+{{--                    </x-responsive-nav-link>--}}
+{{--            @endif--}}
+{{--            @if(request()->routeIs('dashboard-lot'))--}}
+{{--                    <x-responsive-nav-link href="{{ route('dashboard-lot') }}" :active="request()->routeIs('dashboard-lot')">--}}
+{{--                        {{ __('Dashboard') }}--}}
+{{--                    </x-responsive-nav-link>--}}
+{{--            @endif--}}
         </div>
 
         <!-- Responsive Settings Options -->
@@ -165,7 +181,8 @@
             <div class="flex items-center px-4">
                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                     <div class="shrink-0 mr-3">
-                        <img class="h-10 w-10 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                        <img class="h-10 w-10 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}"
+                             alt="{{ Auth::user()->name }}"/>
                     </div>
                 @endif
 
@@ -176,6 +193,9 @@
             </div>
 
             <div class="mt-3 space-y-1">
+
+                @include('components.show-module-mobile.show-module-mobile-component')
+
                 <!-- Account Management -->
                 <x-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
                     {{ __('Profile') }}
@@ -192,7 +212,7 @@
                     @csrf
 
                     <x-responsive-nav-link href="{{ route('logout') }}"
-                                   @click.prevent="$root.submit();">
+                                           @click.prevent="$root.submit();">
                         {{ __('Log Out') }}
                     </x-responsive-nav-link>
                 </form>
@@ -206,12 +226,14 @@
                     </div>
 
                     <!-- Team Settings -->
-                    <x-responsive-nav-link href="{{ route('teams.show', Auth::user()->currentTeam->id) }}" :active="request()->routeIs('teams.show')">
+                    <x-responsive-nav-link href="{{ route('teams.show', Auth::user()->currentTeam->id) }}"
+                                           :active="request()->routeIs('teams.show')">
                         {{ __('Team Settings') }}
                     </x-responsive-nav-link>
 
                     @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
-                        <x-responsive-nav-link href="{{ route('teams.create') }}" :active="request()->routeIs('teams.create')">
+                        <x-responsive-nav-link href="{{ route('teams.create') }}"
+                                               :active="request()->routeIs('teams.create')">
                             {{ __('Create New Team') }}
                         </x-responsive-nav-link>
                     @endcan
@@ -225,7 +247,7 @@
                         </div>
 
                         @foreach (Auth::user()->allTeams() as $team)
-                            <x-switchable-team :team="$team" component="responsive-nav-link" />
+                            <x-switchable-team :team="$team" component="responsive-nav-link"/>
                         @endforeach
                     @endif
                 @endif
