@@ -6,7 +6,7 @@
     </x-slot>
     <div class="py-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-gray-300 overflow-hidden sm:rounded-lg sm:px-2">
+            <div class="overflow-hidden sm:rounded-lg">
                 {{ $this->table }}
             </div>
         </div>

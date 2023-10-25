@@ -9,6 +9,7 @@ enum UserTypes: int
     case RENTER = 2;
     case REALESTATE = 3;
     case ACCOUNTING = 4;
+    case CLIENT = 5;
 
     public function getName(): string
     {
@@ -17,6 +18,7 @@ enum UserTypes: int
             self::RENTER => 'Inquilino',
             self::REALESTATE => 'Imobiliária',
             self::ACCOUNTING => 'Contabilidade',
+            self::CLIENT => 'Cliente',
         };
     }
 
@@ -27,6 +29,7 @@ enum UserTypes: int
             self::RENTER => 'bg-yellow-100 text-yellow-800',
             self::ACCOUNTING => 'bg-gray-100 text-green-800',
             self::REALESTATE => 'bg-red-100 text-red-800',
+            self::CLIENT => 'bg-indigo-100 text-gray-800',
         };
     }
 }

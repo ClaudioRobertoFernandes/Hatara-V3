@@ -10,7 +10,7 @@ use Filament\Forms\Contracts\HasForms;
 use Filament\Tables\Actions\CreateAction;
 use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\EditAction;
-use Filament\Tables\Columns\{TextColumn,};
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
 use Filament\Tables\Table;
@@ -19,16 +19,15 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
 use Livewire\Component;
 
-class IgpmComponent extends Component implements HasForms, HasTable
+class IgpmComponent extends Component implements HasTable, HasForms
 {
     use InteractsWithTable;
     use InteractsWithForms;
 
-
     public function table(Table $table): Table
     {
         return $table
-            ->query(Igpm::query()->orderBy('reference', 'desc'))
+            ->query(Igpm::query())
             ->columns([
                 TextColumn::make('id')
                     ->tooltip('Id')
@@ -44,6 +43,7 @@ class IgpmComponent extends Component implements HasForms, HasTable
                     ->dateTime('d/m/Y')
                     ->sortable()
             ])
+            ->defaultSort('reference', 'desc')
             ->actions([
                 EditAction::make()
                     ->form([
@@ -75,9 +75,7 @@ class IgpmComponent extends Component implements HasForms, HasTable
                     ->createAnother(false)
                     ->modalCancelActionLabel('Cancelar')
             ])
-//            ->striped();
-            ->striped()
-            ->paginated(false);
+            ->striped();
     }
 
     public function render(): View|Application|Factory

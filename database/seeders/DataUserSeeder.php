@@ -2,16 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\Igpm\Igpm;
+
+use App\Models\DataUser\DataUser;
 use Illuminate\Database\Seeder;
 
-class IgpmSeeder extends Seeder
+class DataUserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Igpm::factory(12)->create();
+        DataUser::factory(10)->create();
     }
 }

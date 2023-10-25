@@ -3,6 +3,7 @@
 namespace App\Models\Users;
 
 use App\Models\Address\Address;
+use App\Models\DataUser\DataUser;
 use App\Models\UserType\UserType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -74,6 +75,11 @@ class User extends Authenticatable
     public function address(): HasOne
     {
         return $this->hasOne(Address::class);
+    }
+
+    public function dataUser(): HasOne
+    {
+        return $this->hasOne(DataUser::class);
     }
 
 }

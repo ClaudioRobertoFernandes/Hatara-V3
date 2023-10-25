@@ -62,5 +62,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(IgpmSeeder::class);
 
+        $this->call(DataUserSeeder::class);
+
     }
 }

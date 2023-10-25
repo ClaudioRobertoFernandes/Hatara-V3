@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('data-users', static function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            $table->foreignId('address_id')->constrained();
             $table->string('cpfcnpj');
             $table->string('rg')->nullable();
             $table->string('cellphone')->nullable();
@@ -30,6 +29,7 @@ return new class extends Migration
             $table->string('attachments')->default('NO');
             $table->string('observation')->nullable();
             $table->softDeletes();
+            $table->unique('user_id');
             $table->timestamps();
         });
     }

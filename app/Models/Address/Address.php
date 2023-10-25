@@ -34,4 +34,6 @@ class Address extends Model
     {
         return $this->BelongsTo(User::class);
     }
+
+
 }

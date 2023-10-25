@@ -17,7 +17,6 @@ class BatchFactory extends Factory
      */
     public function definition(): array
     {
-        ds($this->getCharByNameBatchAndBlock())->danger();
         return [
 
             'batch' => 'L-'.$this->getCharByNameBatchAndBlock()[0],
