@@ -2,8 +2,6 @@
 
 namespace App\Models\Users;
 
-use App\Models\Address\Address;
-use App\Models\DataUser\DataUser;
 use App\Models\UserType\UserType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -32,6 +30,30 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'user_type_id',
+        'cpfcnpj',
+        'zip_code',
+        'state',
+        'city',
+        'neighborhood',
+        'street',
+        'rg',
+        'cellphone',
+        'phone',
+        'birth_date',
+        'sex',
+        'marital_status',
+        'children',
+        'quantity_children',
+        'job',
+        'vehicle',
+        'status',
+        'attachments',
+        'observation',
+        'number',
+        'complement',
+        'code_ibge',
+        'ddd',
     ];
 
     /**
@@ -70,16 +92,6 @@ class User extends Authenticatable
     public function userType(): HasOne
     {
         return $this->hasOne(UserType::class);
-    }
-
-    public function address(): HasOne
-    {
-        return $this->hasOne(Address::class);
-    }
-
-    public function dataUser(): HasOne
-    {
-        return $this->hasOne(DataUser::class);
     }
 
 }

@@ -1,9 +1,10 @@
 <?php
 
 use App\Livewire\Clients\ClientsComponent;
-use App\Livewire\Igpm\IgpmComponent;
+use App\Livewire\Clients\ClientsEditComponent;
 use App\Livewire\Dashboard\AllotmentDashboardComponent;
 use App\Livewire\Dashboard\DashboardComponent;
+use App\Livewire\Igpm\IgpmComponent;
 use App\Livewire\Result;
 use Illuminate\Support\Facades\Route;
 
@@ -38,6 +39,8 @@ Route::group([
         Route::get('/dashboard', AllotmentDashboardComponent::class)->name('dashboard-lot');
 
         Route::get('/clients', ClientsComponent::class)->name('clients');
+
+        Route::get('/clients/{user}', ClientsEditComponent::class)->name('clients-edit');
 
         Route::get('/index', IgpmComponent::class)->name('index');
     });

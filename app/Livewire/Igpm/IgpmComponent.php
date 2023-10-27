@@ -46,6 +46,8 @@ class IgpmComponent extends Component implements HasTable, HasForms
             ->defaultSort('reference', 'desc')
             ->actions([
                 EditAction::make()
+                    ->modalHeading('Editar indice')
+                    ->label('Editar')
                     ->form([
                         TextInput::make('value')
                             ->numeric()

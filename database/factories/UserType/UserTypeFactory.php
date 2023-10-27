@@ -18,14 +18,7 @@ class UserTypeFactory extends Factory
     public function definition(): array
     {
         return [
-//            [
-//                'name' => 'Admin',
-//                'description' => 'Admin'
-//            ],
-//            [
-//                'name' => 'User',
-//                'description' => 'User'
-//            ]
+            //
         ];
     }
 }

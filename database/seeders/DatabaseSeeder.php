@@ -33,36 +33,10 @@ class DatabaseSeeder extends Seeder
 
         User::factory(9)->create();
 
-        $state_sc = State::where('abbreviation','SC')->first();
-        City::factory()->create([
-            'state_id' => $state_sc,
-            'name' => 'Balneário Camboriú',
-        ]);
-
-        $this->call(CitySeeder::class);
-
-        $user_id = User::where('id', 1)->first()->id;
-        $city_id = City::where('name', 'Balneário Camboriú')->first()->id;
-
-        Address::factory()->create([
-            'user_id' => $user_id,
-            'city_id' => $city_id,
-            'zip_code' => '88337520',
-            'neighborhood' => 'Municípios',
-            'street' => 'Rua Anitápolis',
-            'number' => '663',
-            'complement' => 'Casa',
-            'code_ibge' => '4202008',
-            'ddd' => '47',
-        ]);
-
-        $this->call(AddressSeeder::class);
-
         $this->call(BatchSeeder::class);
 
         $this->call(IgpmSeeder::class);
 
-        $this->call(DataUserSeeder::class);
 
     }
 }

@@ -28,5 +28,9 @@ class UserTypesSeeder extends Seeder
             'name' => 'Real Estate',
             'description' => 'Company responsible for controlling the (entry/exit) of new tenants',
         ]);
+        UserType::factory()->create([
+            'name' => 'Client',
+            'description' => 'Client of the real estate or accounting or owner',
+        ]);
     }
 }

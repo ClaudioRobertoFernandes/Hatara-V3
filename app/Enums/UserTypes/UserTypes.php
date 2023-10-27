@@ -2,7 +2,9 @@
 
 namespace App\Enums\UserTypes;
 
-enum UserTypes: int
+use Filament\Support\Contracts\HasLabel;
+
+enum UserTypes: int implements HasLabel
 {
 
     case OWNER = 1;
@@ -30,6 +32,17 @@ enum UserTypes: int
             self::ACCOUNTING => 'bg-gray-100 text-green-800',
             self::REALESTATE => 'bg-red-100 text-red-800',
             self::CLIENT => 'bg-indigo-100 text-gray-800',
+        };
+    }
+
+    public function getLabel(): ?string
+    {
+        return match ($this) {
+            self::OWNER => 'Proprietário',
+            self::RENTER => 'Inquilino',
+            self::REALESTATE => 'Imobiliária',
+            self::ACCOUNTING => 'Contabilidade',
+            self::CLIENT => 'Cliente',
         };
     }
 }
