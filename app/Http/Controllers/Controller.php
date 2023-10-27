@@ -19,6 +19,7 @@ class Controller extends BaseController
             ['name' => 'Resultados', 'route' => 'result','label'=> 'Result','group'=>'anual'],
             ['name' => 'Clientes', 'route'=>'clients', 'label' =>'Clientes', 'group'=>'loteamento'],
             ['name' => 'Index', 'route'=>'index', 'label' =>'Igpm', 'group'=>'loteamento'],
+            ['name' => 'Batches', 'route' => 'batches', 'label' => 'Lotes', 'group' => 'loteamento'],
         ];
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\Batch\BatchComponent;
 use App\Livewire\Clients\ClientsComponent;
 use App\Livewire\Clients\ClientsEditComponent;
 use App\Livewire\Dashboard\AllotmentDashboardComponent;
@@ -43,6 +44,8 @@ Route::group([
         Route::get('/clients/{user}', ClientsEditComponent::class)->name('clients-edit');
 
         Route::get('/index', IgpmComponent::class)->name('index');
+
+        Route::get('/batches', BatchComponent::class)->name('batches');
     });
 
     Route::prefix('temporada')->group(function () {
