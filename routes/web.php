@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\Attachment\AttachmentComponent;
 use App\Livewire\Batch\BatchComponent;
 use App\Livewire\Clients\ClientsComponent;
 use App\Livewire\Clients\ClientsEditComponent;
@@ -46,6 +47,8 @@ Route::group([
         Route::get('/index', IgpmComponent::class)->name('index');
 
         Route::get('/batches', BatchComponent::class)->name('batches');
+
+        Route::get('/attachments/{for}', AttachmentComponent::class)->name('attachments');
     });
 
     Route::prefix('temporada')->group(function () {

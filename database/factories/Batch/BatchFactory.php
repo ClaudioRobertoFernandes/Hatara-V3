@@ -19,8 +19,8 @@ class BatchFactory extends Factory
     {
         return [
 
-            'batch' => 'L-'.$this->getCharByNameBatchAndBlock()[0],
-            'block' => 'Q-'.$this->getCharByNameBatchAndBlock()[0],
+            'batch' => $this->getCharByNameBatchAndBlock()[0],
+            'block' => $this->getCharByNameBatchAndBlock()[0],
             'sold' => $this->faker->randomKey(['SIM' => 'SIM', 'NÃO' => 'NÃO']),
             'settled' => $this->faker->randomKey(['SIM' => 'SIM', 'NÃO' => 'NÃO']),
             'written_down' => $this->faker->randomKey(['SIM' => 'SIM', 'NÃO' => 'NÃO']),

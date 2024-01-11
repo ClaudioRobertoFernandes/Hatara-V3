@@ -2,10 +2,12 @@
 
 namespace App\Models\Sale;
 
+use App\Models\Attachment\Attachment;
 use App\Models\Batch\Batch;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Sale extends Model
@@ -43,4 +45,10 @@ class Sale extends Model
     {
         return $this->belongsTo(Batch::class);
     }
+
+    public function attachment(): HasMany
+    {
+        return $this->hasMany(Attachment::class);
+    }
+
 }

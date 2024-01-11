@@ -22,4 +22,5 @@
 
     <!-- Styles -->
     @livewireStyles
+    <wireui:scripts/>
 </head>

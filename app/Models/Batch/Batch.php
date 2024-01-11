@@ -2,8 +2,11 @@
 
 namespace App\Models\Batch;
 
+use App\Models\Attachment\Attachment;
+use App\Models\Sale\Sale;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Batch extends Model
@@ -31,4 +34,18 @@ class Batch extends Model
         'updated_at' => 'datetime',
     ];
 
+    public function getBatchBlockAttribute(): string
+    {
+        return $this->batch . ' ' . $this->block;
+    }
+
+    public function attachment(): HasMany
+    {
+        return $this->hasMany(Attachment::class);
+    }
+
+    public function sale(): HasMany
+    {
+        return $this->hasMany(Sale::class);
+    }
 }

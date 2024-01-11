@@ -300,7 +300,8 @@ class ClientsComponent extends Component implements HasForms, HasTable
                 TextColumn::make('created_at')
                     ->label('Criado em')
                     ->sortable()
-                    ->date('d/m/Y'),
+                    ->date('d/m/Y')
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 Filter::make('name')
